@@ -19,12 +19,18 @@ class Room(models.Model):
 
     """
 
+    def __str__(self):
+        return self.title
+
 class Message(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
-    text = models.TextField() 
+    text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     
     """O auto_now_add é um parâmetro que é usado para definir que, quando um objeto é criado, o campo será automaticamente preenchido com a data e hora atuais."""
+
+    def __str__(self):
+        return f"{self.user.username}: {self.text}"
