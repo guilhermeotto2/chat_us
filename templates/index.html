@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    OLA
+    <ul>
+        {% for m in messages%}
+            <li> <b>{{m.user.username}}</b>: {{m.text}}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
