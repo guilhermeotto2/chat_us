@@ -6,10 +6,22 @@
     <title>Document</title>
 </head>
 <body>
+
+    <h2>Rooms</h2>
+    <ul>
+        {% for r in rooms %}
+        <li> {{r.title}} </li>
+        {%endfor%}
+    </ul>
+
+    <hr>
+
+    <h2>Messages</h2>
     <ul>
         {% for m in messages%}
             <li> <b>{{m.user.username}}</b>: {{m.text}}</li>
         {% endfor %}
     </ul>
+
 </body>
 </html>
