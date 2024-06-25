@@ -12,8 +12,9 @@
             </div>
 
             <ul class="list-group shadow border-0">
-                <li class="list-group-item active">Sala 1</li>
-                <li class="list-group-item">Sala 2</li>
+                {% for r in rooms %}
+                <li class="list-group-item">{{r.title}}</li>
+                {% endfor %}
             </ul>
         </div>
     </div>
@@ -22,36 +23,16 @@
     <div class="chat-messages h-100 w-75">
         <div class="messages card m-3 p-3 h-75 shadow border-0 overflow-scroll">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item border-bottom-0">
-                    <div class="d-flex justify-content-between">
-                        <div class="content">
-                            <b>@user1</b> Olá
+                {% for m in messages %}
+                    <li class="list-group-item border-bottom-0">
+                        <div class="d-flex justify-content-between">
+                            <div class="content">
+                                <b>{{m.user.username}}</b> {{m.text}}
+                            </div>
+                            <div class="time ">{{m.created_at}}</div>
                         </div>
-                        <div class="time ">agora</div>
-                    </div>
-                </li>
-                <li class="list-group-item border-bottom-0">
-                    <div class="d-flex justify-content-between">
-                        <div class="content">
-                            <b>@user2</b> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                            unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                            has survived not only five centuries, but also the leap into electronic typesetting,
-                            remaining essentially unchanged. It was popularised in the 1960s with the release of
-                            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                            publishing
-                        </div>
-                        <div class="time ">agora</div>
-                    </div>
-                </li>
-                <li class="list-group-item border-bottom-0">
-                    <div class="d-flex justify-content-between">
-                        <div class="content">
-                            <b>@user1</b> tendi nada
-                        </div>
-                        <div class="time ">agora</div>
-                    </div>
-                </li>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
         <div class="send-message card m-3 shadow border-0">
