@@ -22,18 +22,7 @@
 <!--Mensagens-->
     <div class="chat-messages h-100 w-75">
         <div class="messages card m-3 p-3 h-75 shadow border-0 overflow-scroll">
-            <ul class="list-group list-group-flush">
-                {% for m in messages %}
-                    <li class="list-group-item border-bottom-0">
-                        <div class="d-flex justify-content-between">
-                            <div class="content">
-                                <b>{{m.user.username}}</b> {{m.text}}
-                            </div>
-                            <div class="time ">{{m.created_at}}</div>
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
+            {% include 'chat/list_messages.html' %}
         </div>
         <div class="send-message card m-3 shadow border-0">
             <form>
